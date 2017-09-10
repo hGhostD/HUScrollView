@@ -10,9 +10,12 @@
 		857DBF6D1F64EDA400EBCB97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857DBF6C1F64EDA400EBCB97 /* Assets.xcassets */; };
 		857DBF831F64EE2E00EBCB97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857DBF7F1F64EE2E00EBCB97 /* LaunchScreen.storyboard */; };
 		857DBF841F64EE2E00EBCB97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857DBF811F64EE2E00EBCB97 /* Main.storyboard */; };
+		857DBF881F65149600EBCB97 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 857DBF871F65149600EBCB97 /* 1.jpg */; };
+		92D22D84FEA57EFF3AA91363 /* Pods_HUScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B74D63F7C1F61F7B6A4A342 /* Pods-HUScrollView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUScrollView.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView.release.xcconfig"; sourceTree = "<group>"; };
 		857DBF621F64EDA400EBCB97 /* HUScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857DBF6C1F64EDA400EBCB97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		857DBF781F64EDE500EBCB97 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -20,6 +23,9 @@
 		857DBF7A1F64EDE500EBCB97 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		857DBF801F64EE2E00EBCB97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		857DBF821F64EE2E00EBCB97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		857DBF871F65149600EBCB97 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D0C7C450FA614F2C7C1B2B /* Pods-HUScrollView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUScrollView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D22D84FEA57EFF3AA91363 /* Pods_HUScrollView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +45,8 @@
 			children = (
 				857DBF641F64EDA400EBCB97 /* HUScrollView */,
 				857DBF631F64EDA400EBCB97 /* Products */,
+				9EE9FC7E870AF0022584D4C7 /* Pods */,
+				D9294AACB9C85496AC8EC100 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +92,7 @@
 		857DBF851F64EE5D00EBCB97 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				857DBF871F65149600EBCB97 /* 1.jpg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -94,6 +104,23 @@
 			path = ScrollView;
 			sourceTree = "<group>";
 		};
+		9EE9FC7E870AF0022584D4C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0D0C7C450FA614F2C7C1B2B /* Pods-HUScrollView.debug.xcconfig */,
+				2B74D63F7C1F61F7B6A4A342 /* Pods-HUScrollView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D9294AACB9C85496AC8EC100 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,9 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 857DBF741F64EDA400EBCB97 /* Build configuration list for PBXNativeTarget "HUScrollView" */;
 			buildPhases = (
+				D82F68E0154852FB967E05AF /* [CP] Check Pods Manifest.lock */,
 				857DBF5E1F64EDA400EBCB97 /* Sources */,
 				857DBF5F1F64EDA400EBCB97 /* Frameworks */,
 				857DBF601F64EDA400EBCB97 /* Resources */,
+				8F114C35DD14B57C2912B3EE /* [CP] Embed Pods Frameworks */,
+				55E7ADCB0886952DC2E4379C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,12 +185,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				857DBF831F64EE2E00EBCB97 /* LaunchScreen.storyboard in Resources */,
+				857DBF881F65149600EBCB97 /* 1.jpg in Resources */,
 				857DBF6D1F64EDA400EBCB97 /* Assets.xcassets in Resources */,
 				857DBF841F64EE2E00EBCB97 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		55E7ADCB0886952DC2E4379C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F114C35DD14B57C2912B3EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D82F68E0154852FB967E05AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HUScrollView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		857DBF5E1F64EDA400EBCB97 /* Sources */ = {
@@ -287,6 +376,7 @@
 		};
 		857DBF751F64EDA400EBCB97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0D0C7C450FA614F2C7C1B2B /* Pods-HUScrollView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4EAX79Y925;
@@ -301,6 +391,7 @@
 		};
 		857DBF761F64EDA400EBCB97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B74D63F7C1F61F7B6A4A342 /* Pods-HUScrollView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4EAX79Y925;
@@ -332,6 +423,7 @@
 				857DBF761F64EDA400EBCB97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
