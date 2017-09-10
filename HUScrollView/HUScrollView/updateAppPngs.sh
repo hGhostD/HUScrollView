@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #  updateAppPngs.sh
-#  
+#
 #
 #  Created by Jianfeng Wu on 9/22/16.
 #
