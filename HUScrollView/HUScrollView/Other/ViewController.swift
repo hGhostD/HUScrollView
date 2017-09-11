@@ -8,9 +8,11 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SnapKit
 
 class ViewController: UIViewController {
+    let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +23,13 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 5
         self.view.addSubview(button)
         button.snp.makeConstraints {
-            $0.center.equalTo(self.view)
+            $0.center.equalTo(self.view.snp.center)
             $0.width.equalTo(120)
             $0.center.equalTo(40)
         }
+        button.rx.tap.subscribe(onNext: {
+            self.navigationController?.pushViewController(HUScrollController(), animated: true)
+        }).addDisposableTo(bag)
     }
-
 }
 
