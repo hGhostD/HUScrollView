@@ -47,11 +47,11 @@
 		852D88021F6652CD0053759E /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				852D88091F6652CD0053759E /* ViewController.swift */,
 				852D88031F6652CD0053759E /* AppDelegate.swift */,
 				852D88041F6652CD0053759E /* LaunchScreen.storyboard */,
 				852D88061F6652CD0053759E /* Main.storyboard */,
 				852D88081F6652CD0053759E /* Info.plist */,
-				852D88091F6652CD0053759E /* ViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";

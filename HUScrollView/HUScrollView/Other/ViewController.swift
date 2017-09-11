@@ -17,15 +17,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.isNavigationBarHidden = true
         
         let button = UIButton(type: .custom)
         button.backgroundColor = UIColor(red: 0, green: 147/255, blue: 1, alpha: 1)
         button.layer.cornerRadius = 5
         self.view.addSubview(button)
         button.snp.makeConstraints {
-            $0.center.equalTo(self.view.snp.center)
+            $0.center.equalTo(self.view)
             $0.width.equalTo(120)
-            $0.center.equalTo(40)
+            $0.height.equalTo(40)
         }
         button.rx.tap.subscribe(onNext: {
             self.navigationController?.pushViewController(HUScrollController(), animated: true)
