@@ -29,7 +29,9 @@ class ViewController: UIViewController {
             $0.height.equalTo(40)
         }
         button.rx.tap.subscribe(onNext: {
-            self.navigationController?.pushViewController(HUScrollController(), animated: true)
+            let scrollVC = HUScrollController()
+            scrollVC.image = UIImage(named: "1.jpg")
+            self.navigationController?.pushViewController(scrollVC, animated: true)
         }).addDisposableTo(bag)
     }
 }
