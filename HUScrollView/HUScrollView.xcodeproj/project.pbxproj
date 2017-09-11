@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		857DBF6D1F64EDA400EBCB97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857DBF6C1F64EDA400EBCB97 /* Assets.xcassets */; };
-		857DBF831F64EE2E00EBCB97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857DBF7F1F64EE2E00EBCB97 /* LaunchScreen.storyboard */; };
-		857DBF841F64EE2E00EBCB97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857DBF811F64EE2E00EBCB97 /* Main.storyboard */; };
-		857DBF881F65149600EBCB97 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 857DBF871F65149600EBCB97 /* 1.jpg */; };
+		852D880C1F6652CD0053759E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 852D88011F6652CD0053759E /* Assets.xcassets */; };
+		852D880D1F6652CD0053759E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852D88031F6652CD0053759E /* AppDelegate.swift */; };
+		852D880E1F6652CD0053759E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852D88041F6652CD0053759E /* LaunchScreen.storyboard */; };
+		852D880F1F6652CD0053759E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852D88061F6652CD0053759E /* Main.storyboard */; };
+		852D88111F6652CD0053759E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852D88091F6652CD0053759E /* ViewController.swift */; };
+		852D88121F6652CD0053759E /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 852D880B1F6652CD0053759E /* 1.jpg */; };
+		852D88151F6653620053759E /* HUScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852D88141F6653620053759E /* HUScrollController.swift */; };
 		92D22D84FEA57EFF3AA91363 /* Pods_HUScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B74D63F7C1F61F7B6A4A342 /* Pods-HUScrollView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUScrollView.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView.release.xcconfig"; sourceTree = "<group>"; };
+		852D88011F6652CD0053759E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		852D88031F6652CD0053759E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		852D88051F6652CD0053759E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		852D88071F6652CD0053759E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		852D88081F6652CD0053759E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		852D88091F6652CD0053759E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		852D880B1F6652CD0053759E /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		852D88141F6653620053759E /* HUScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUScrollController.swift; sourceTree = "<group>"; };
 		857DBF621F64EDA400EBCB97 /* HUScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		857DBF6C1F64EDA400EBCB97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		857DBF781F64EDE500EBCB97 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		857DBF791F64EDE500EBCB97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		857DBF7A1F64EDE500EBCB97 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		857DBF801F64EE2E00EBCB97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		857DBF821F64EE2E00EBCB97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		857DBF871F65149600EBCB97 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D0C7C450FA614F2C7C1B2B /* Pods-HUScrollView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUScrollView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,6 +44,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		852D88021F6652CD0053759E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				852D88031F6652CD0053759E /* AppDelegate.swift */,
+				852D88041F6652CD0053759E /* LaunchScreen.storyboard */,
+				852D88061F6652CD0053759E /* Main.storyboard */,
+				852D88081F6652CD0053759E /* Info.plist */,
+				852D88091F6652CD0053759E /* ViewController.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		852D880A1F6652CD0053759E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				852D880B1F6652CD0053759E /* 1.jpg */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		852D88131F66533F0053759E /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				852D88141F6653620053759E /* HUScrollController.swift */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
 		857DBF591F64EDA400EBCB97 = {
 			isa = PBXGroup;
 			children = (
@@ -61,47 +93,12 @@
 		857DBF641F64EDA400EBCB97 /* HUScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				857DBF851F64EE5D00EBCB97 /* Resource */,
-				857DBF861F64EE5D00EBCB97 /* ScrollView */,
-				857DBF771F64EDE500EBCB97 /* Other */,
-				857DBF6C1F64EDA400EBCB97 /* Assets.xcassets */,
+				852D88131F66533F0053759E /* ScrollView */,
+				852D88021F6652CD0053759E /* Other */,
+				852D880A1F6652CD0053759E /* Resource */,
+				852D88011F6652CD0053759E /* Assets.xcassets */,
 			);
 			path = HUScrollView;
-			sourceTree = "<group>";
-		};
-		857DBF771F64EDE500EBCB97 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				857DBF7E1F64EE2E00EBCB97 /* Base.lproj */,
-				857DBF781F64EDE500EBCB97 /* AppDelegate.swift */,
-				857DBF791F64EDE500EBCB97 /* Info.plist */,
-				857DBF7A1F64EDE500EBCB97 /* ViewController.swift */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
-		857DBF7E1F64EE2E00EBCB97 /* Base.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				857DBF7F1F64EE2E00EBCB97 /* LaunchScreen.storyboard */,
-				857DBF811F64EE2E00EBCB97 /* Main.storyboard */,
-			);
-			path = Base.lproj;
-			sourceTree = "<group>";
-		};
-		857DBF851F64EE5D00EBCB97 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				857DBF871F65149600EBCB97 /* 1.jpg */,
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		857DBF861F64EE5D00EBCB97 /* ScrollView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ScrollView;
 			sourceTree = "<group>";
 		};
 		9EE9FC7E870AF0022584D4C7 /* Pods */ = {
@@ -184,10 +181,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				857DBF831F64EE2E00EBCB97 /* LaunchScreen.storyboard in Resources */,
-				857DBF881F65149600EBCB97 /* 1.jpg in Resources */,
-				857DBF6D1F64EDA400EBCB97 /* Assets.xcassets in Resources */,
-				857DBF841F64EE2E00EBCB97 /* Main.storyboard in Resources */,
+				852D880F1F6652CD0053759E /* Main.storyboard in Resources */,
+				852D880C1F6652CD0053759E /* Assets.xcassets in Resources */,
+				852D880E1F6652CD0053759E /* LaunchScreen.storyboard in Resources */,
+				852D88121F6652CD0053759E /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +243,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -256,24 +253,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				852D88111F6652CD0053759E /* ViewController.swift in Sources */,
+				852D880D1F6652CD0053759E /* AppDelegate.swift in Sources */,
+				852D88151F6653620053759E /* HUScrollController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		857DBF7F1F64EE2E00EBCB97 /* LaunchScreen.storyboard */ = {
+		852D88041F6652CD0053759E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				857DBF801F64EE2E00EBCB97 /* Base */,
+				852D88051F6652CD0053759E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		857DBF811F64EE2E00EBCB97 /* Main.storyboard */ = {
+		852D88061F6652CD0053759E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				857DBF821F64EE2E00EBCB97 /* Base */,
+				852D88071F6652CD0053759E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -379,12 +379,15 @@
 			baseConfigurationReference = B0D0C7C450FA614F2C7C1B2B /* Pods-HUScrollView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4EAX79Y925;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "$(SRCROOT)/HUScrollView/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.hu.HUScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -394,12 +397,15 @@
 			baseConfigurationReference = 2B74D63F7C1F61F7B6A4A342 /* Pods-HUScrollView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4EAX79Y925;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "$(SRCROOT)/HUScrollView/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.hu.HUScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -414,7 +420,7 @@
 				857DBF731F64EDA400EBCB97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		857DBF741F64EDA400EBCB97 /* Build configuration list for PBXNativeTarget "HUScrollView" */ = {
 			isa = XCConfigurationList;
@@ -423,7 +429,7 @@
 				857DBF761F64EDA400EBCB97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
