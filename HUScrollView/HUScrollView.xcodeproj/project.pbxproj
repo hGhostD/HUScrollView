@@ -13,8 +13,9 @@
 		852D880F1F6652CD0053759E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852D88061F6652CD0053759E /* Main.storyboard */; };
 		852D88111F6652CD0053759E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852D88091F6652CD0053759E /* ViewController.swift */; };
 		852D88121F6652CD0053759E /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 852D880B1F6652CD0053759E /* 1.jpg */; };
-		852D88151F6653620053759E /* HUScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852D88141F6653620053759E /* HUScrollController.swift */; };
-		85B03BB31F66CCD100556ED8 /* HUExtensionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B03BB21F66CCD100556ED8 /* HUExtensionTool.swift */; };
+		8539195E1F6777610003AC8B /* HUScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539195A1F6777610003AC8B /* HUScrollController.swift */; };
+		853919611F6777810003AC8B /* HUScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853919601F6777810003AC8B /* HUScrollView.swift */; };
+		853919631F67782E0003AC8B /* HUExtensionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853919621F67782E0003AC8B /* HUExtensionTool.swift */; };
 		92D22D84FEA57EFF3AA91363 /* Pods_HUScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,9 +28,10 @@
 		852D88081F6652CD0053759E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		852D88091F6652CD0053759E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		852D880B1F6652CD0053759E /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		852D88141F6653620053759E /* HUScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUScrollController.swift; sourceTree = "<group>"; };
+		8539195A1F6777610003AC8B /* HUScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUScrollController.swift; sourceTree = "<group>"; };
+		853919601F6777810003AC8B /* HUScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUScrollView.swift; sourceTree = "<group>"; };
+		853919621F67782E0003AC8B /* HUExtensionTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUExtensionTool.swift; sourceTree = "<group>"; };
 		857DBF621F64EDA400EBCB97 /* HUScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		85B03BB21F66CCD100556ED8 /* HUExtensionTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUExtensionTool.swift; sourceTree = "<group>"; };
 		8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D0C7C450FA614F2C7C1B2B /* Pods-HUScrollView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUScrollView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,10 +71,35 @@
 		852D88131F66533F0053759E /* ScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				852D88141F6653620053759E /* HUScrollController.swift */,
-				85B03BB21F66CCD100556ED8 /* HUExtensionTool.swift */,
+				853919591F6777610003AC8B /* Controller */,
+				8539195B1F6777610003AC8B /* Tool */,
+				8539195D1F6777610003AC8B /* View */,
 			);
 			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		853919591F6777610003AC8B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8539195A1F6777610003AC8B /* HUScrollController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8539195B1F6777610003AC8B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				853919621F67782E0003AC8B /* HUExtensionTool.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		8539195D1F6777610003AC8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				853919601F6777810003AC8B /* HUScrollView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		857DBF591F64EDA400EBCB97 = {
@@ -256,10 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85B03BB31F66CCD100556ED8 /* HUExtensionTool.swift in Sources */,
+				853919631F67782E0003AC8B /* HUExtensionTool.swift in Sources */,
+				853919611F6777810003AC8B /* HUScrollView.swift in Sources */,
 				852D88111F6652CD0053759E /* ViewController.swift in Sources */,
 				852D880D1F6652CD0053759E /* AppDelegate.swift in Sources */,
-				852D88151F6653620053759E /* HUScrollController.swift in Sources */,
+				8539195E1F6777610003AC8B /* HUScrollController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
