@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         }
         button.rx.tap.subscribe(onNext: {
             let scrollVC = HUScrollController()
-            scrollVC.image = UIImage(named: "1.jpg")
+            scrollVC.image.value = UIImage(named: "1.jpg")!
             self.navigationController?.pushViewController(scrollVC, animated: true)
         }).addDisposableTo(bag)
     }

@@ -9,6 +9,7 @@ target 'HUScrollView' do
   pod 'RxCocoa'
   pod 'SnapKit'
   pod 'Reveal-iOS-SDK', '~> 1.6.2'
+  pod 'pop', '~> 1.0.10'
   # Pods for HUScrollView
 
 end

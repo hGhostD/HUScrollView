@@ -13,46 +13,17 @@ enum showStauts {
     case toolBar
 }
 
-extension HUScrollController {
+class HUScrollView: UIScrollView {
+    override init(frame: CGRect) { super.init(frame: frame) }
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     
-    
-    func tapAction() {
-        changeStatus()
+    convenience init() {
+        self.init(frame: CGRect.zero)
+        self.showsVerticalScrollIndicator   = true
+        self.showsHorizontalScrollIndicator = true
+        //设置滑动视图
+        self.backgroundColor = UIColor.black
     }
     
-    func doubleAction() {
-        imageView.snp.makeConstraints {
-            $0.edges.equalTo(scrollView)
-        }
-    }
-    
-    func changeStatus() {
-        
-        switch self.status {
-        case .toolBar :
-                self.status = .default
-                showNavBar()
-                break
-        default:
-                self.status = .toolBar
-                hideNavBar()
-                break
-        }
-    }
-    
-    func showNavBar() {
-        self.isHiddenStatus = false
-        UIView.animate(withDuration: 0.5) { 
-            self.navBar.transform = CGAffineTransform(translationX: 0, y: 64)
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
-    
-    func hideNavBar() {
-        self.isHiddenStatus = true
-        UIView.animate(withDuration: 0.5) { 
-            self.navBar.transform = CGAffineTransform.identity
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
 }
+

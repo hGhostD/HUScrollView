@@ -10,16 +10,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SnapKit
+import pop
 
 class HUScrollController: UIViewController {
 
-    let scrollView = UIScrollView()
-    let imageView  = UIImageView()
-    public var image: UIImage? {
-        didSet {
-            imageView.image = image
-        }
-    }
+    fileprivate let scrollView = HUScrollView()
+    fileprivate let imageView  = UIImageView()
+    public var image = Variable<UIImage>(UIImage())
     var status = showStauts.default
     let navBar = UIView()
     let bag = DisposeBag()
@@ -34,17 +31,11 @@ class HUScrollController: UIViewController {
         setupSnpKit()
         setupGesture()
         setupRxSwift()
-        reloadImageView()
     }
     
     func setupUI() {
         self.view.backgroundColor = UIColor.white
         self.navigationController?.isNavigationBarHidden = true
-        //设置滑动视图
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.showsVerticalScrollIndicator   = false
-        scrollView.bounces = false
-        scrollView.backgroundColor = UIColor.black
         
         imageView.isUserInteractionEnabled = true
         
@@ -73,26 +64,91 @@ class HUScrollController: UIViewController {
     
     func setupGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        tap.numberOfTapsRequired = 1
         imageView.addGestureRecognizer(tap)
         
         let double = UITapGestureRecognizer(target: self, action: #selector(doubleAction))
         double.numberOfTapsRequired = 2
+        tap.require(toFail: double)
         imageView.addGestureRecognizer(double)
     }
 
     func setupRxSwift() {
-
+        self.image.asObservable().subscribe(onNext: {
+            self.imageView.image = $0
+            self.reloadImageView()
+        }).addDisposableTo(bag)
     }
     
     //刷新大图UI布局
     func reloadImageView() {
-        let imageSize = HUExtensionTool.getImageSize(self.image!)
-        scrollView.contentSize = imageSize
-        imageView.bounds.size = imageSize
-        imageView.center = CGPoint(x: SCREEN_WIDTH / 2, y: SCREEN_HEIGHT / 2)
+        let imageSize = HUExtensionTool.getImageSize(self.image.value)
+        UIView.animate(withDuration: 0.3) { 
+            self.scrollView.contentSize = imageSize
+            self.imageView.bounds.size = imageSize
+            self.imageView.center = CGPoint(x: SCREEN_WIDTH / 2, y: SCREEN_HEIGHT / 2)
+        }
+    }
+    
+    func blowUpImageView() {
+        let imageSize = HUExtensionTool.getImageMaxSize(self.image.value)
+        print(imageSize)
+        UIView.animate(withDuration: 0.3) { 
+            self.scrollView.contentSize = imageSize
+            self.imageView.bounds.size = imageSize
+            self.imageView.center = CGPoint(x: SCREEN_WIDTH / 2, y: SCREEN_HEIGHT / 2)
+            
+        }
     }
     
     func back() {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension HUScrollController {
+    
+    
+    func tapAction() {
+        changeStatus()
+    }
+    
+    func doubleAction() {
+        if imageView.frame.size.width > SCREEN_WIDTH ||
+            imageView.frame.size.height > SCREEN_HEIGHT {
+            reloadImageView()
+        }else {
+            blowUpImageView()
+        }
+    }
+    
+    func changeStatus() {
+        
+        switch self.status {
+        case .toolBar :
+            self.status = .default
+            showNavBar()
+            break
+        default:
+            self.status = .toolBar
+            hideNavBar()
+            break
+        }
+    }
+    
+    func showNavBar() {
+        self.isHiddenStatus = false
+        UIView.animate(withDuration: 0.3) {
+            self.navBar.transform = CGAffineTransform(translationX: 0, y: 64)
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    func hideNavBar() {
+        self.isHiddenStatus = true
+        UIView.animate(withDuration: 0.3) {
+            self.navBar.transform = CGAffineTransform.identity
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
     }
 }

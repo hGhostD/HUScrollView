@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FCFC761E4200C3F5485A35C30FBDB220"
+               BlueprintIdentifier = "02C49D214D40F437E00DE7781E1590BD"
                BuildableName = "Pods_HUScrollView.framework"
                BlueprintName = "Pods-HUScrollView"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FCFC761E4200C3F5485A35C30FBDB220"
+            BlueprintIdentifier = "02C49D214D40F437E00DE7781E1590BD"
             BuildableName = "Pods_HUScrollView.framework"
             BlueprintName = "Pods-HUScrollView"
             ReferencedContainer = "container:Pods.xcodeproj">
