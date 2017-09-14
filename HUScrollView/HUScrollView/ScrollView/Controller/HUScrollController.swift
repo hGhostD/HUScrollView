@@ -60,44 +60,45 @@ class HUScrollController: UIViewController {
         scrollView.snp.makeConstraints {
             $0.left.top.right.bottom.equalTo(0)
         }
+        let imageSize = HUExtensionTool.getImageSize(self.image.value)
+        imageView.snp.makeConstraints {
+            $0.center.equalTo(scrollView)
+            $0.size.equalTo(imageSize)
+        }
     }
     
     func setupGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         tap.numberOfTapsRequired = 1
-        imageView.addGestureRecognizer(tap)
+        scrollView.addGestureRecognizer(tap)
         
         let double = UITapGestureRecognizer(target: self, action: #selector(doubleAction))
         double.numberOfTapsRequired = 2
         tap.require(toFail: double)
-        imageView.addGestureRecognizer(double)
+        scrollView.addGestureRecognizer(double)
     }
 
     func setupRxSwift() {
         self.image.asObservable().subscribe(onNext: {
             self.imageView.image = $0
-            self.reloadImageView()
         }).addDisposableTo(bag)
     }
     
     //刷新大图UI布局
     func reloadImageView() {
         let imageSize = HUExtensionTool.getImageSize(self.image.value)
-        UIView.animate(withDuration: 0.3) { 
-            self.scrollView.contentSize = imageSize
-            self.imageView.bounds.size = imageSize
-            self.imageView.center = CGPoint(x: SCREEN_WIDTH / 2, y: SCREEN_HEIGHT / 2)
+        imageView.snp.remakeConstraints {
+            $0.center.equalTo(scrollView)
+            $0.size.equalTo(imageSize)
         }
     }
     
     func blowUpImageView() {
         let imageSize = HUExtensionTool.getImageMaxSize(self.image.value)
-        print(imageSize)
-        UIView.animate(withDuration: 0.3) { 
-            self.scrollView.contentSize = imageSize
-            self.imageView.bounds.size = imageSize
-            self.imageView.center = CGPoint(x: SCREEN_WIDTH / 2, y: SCREEN_HEIGHT / 2)
-            
+        imageView.snp.remakeConstraints {
+            $0.size.equalTo(imageSize)
+            $0.center.equalTo(scrollView)
+            $0.left.right.equalTo(0)
         }
     }
     
