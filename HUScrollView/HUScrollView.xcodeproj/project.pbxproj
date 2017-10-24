@@ -16,6 +16,7 @@
 		8539195E1F6777610003AC8B /* HUScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539195A1F6777610003AC8B /* HUScrollController.swift */; };
 		853919611F6777810003AC8B /* HUScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853919601F6777810003AC8B /* HUScrollView.swift */; };
 		853919631F67782E0003AC8B /* HUExtensionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853919621F67782E0003AC8B /* HUExtensionTool.swift */; };
+		855C28131F9EE7C6004DB118 /* HUUIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855C28121F9EE7C6004DB118 /* HUUIProtocol.swift */; };
 		92D22D84FEA57EFF3AA91363 /* Pods_HUScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		8539195A1F6777610003AC8B /* HUScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUScrollController.swift; sourceTree = "<group>"; };
 		853919601F6777810003AC8B /* HUScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUScrollView.swift; sourceTree = "<group>"; };
 		853919621F67782E0003AC8B /* HUExtensionTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUExtensionTool.swift; sourceTree = "<group>"; };
+		855C28121F9EE7C6004DB118 /* HUUIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUUIProtocol.swift; sourceTree = "<group>"; };
 		857DBF621F64EDA400EBCB97 /* HUScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HUScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8958E2AF08286AACAE699C25 /* Pods_HUScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D0C7C450FA614F2C7C1B2B /* Pods-HUScrollView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUScrollView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUScrollView/Pods-HUScrollView.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		852D88131F66533F0053759E /* ScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				855C28111F9EE739004DB118 /* Protocol */,
 				853919591F6777610003AC8B /* Controller */,
 				8539195B1F6777610003AC8B /* Tool */,
 				8539195D1F6777610003AC8B /* View */,
@@ -100,6 +103,14 @@
 				853919601F6777810003AC8B /* HUScrollView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		855C28111F9EE739004DB118 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				855C28121F9EE7C6004DB118 /* HUUIProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		857DBF591F64EDA400EBCB97 = {
@@ -178,7 +189,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "胡佳文";
 				TargetAttributes = {
 					857DBF611F64EDA400EBCB97 = {
@@ -246,12 +257,14 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -273,7 +286,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -283,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855C28131F9EE7C6004DB118 /* HUUIProtocol.swift in Sources */,
 				853919631F67782E0003AC8B /* HUExtensionTool.swift in Sources */,
 				853919611F6777810003AC8B /* HUScrollView.swift in Sources */,
 				852D88111F6652CD0053759E /* ViewController.swift in Sources */,
@@ -323,7 +337,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -331,7 +347,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -373,7 +393,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -381,7 +403,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -415,12 +441,12 @@
 				DEVELOPMENT_TEAM = 4EAX79Y925;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "$(SRCROOT)/HUScrollView/Other/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.hu.HUScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -433,12 +459,12 @@
 				DEVELOPMENT_TEAM = 4EAX79Y925;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "$(SRCROOT)/HUScrollView/Other/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.hu.HUScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

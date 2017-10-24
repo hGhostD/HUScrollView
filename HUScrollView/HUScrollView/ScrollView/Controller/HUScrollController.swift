@@ -47,7 +47,7 @@ class HUScrollController: UIViewController {
         backButton.frame = CGRect(x: 0, y: 20, width: 44, height: 44)
         backButton.rx.tap.subscribe(onNext: {
            self.back()
-        }).addDisposableTo(bag);
+        }).disposed(by: bag);
         navBar.addSubview(backButton)
         
         self.view.addSubview(scrollView)
@@ -81,7 +81,7 @@ class HUScrollController: UIViewController {
     func setupRxSwift() {
         self.image.asObservable().subscribe(onNext: {
             self.imageView.image = $0
-        }).addDisposableTo(bag)
+        }).disposed(by: bag)
     }
     
     //刷新大图UI布局
@@ -110,11 +110,11 @@ class HUScrollController: UIViewController {
 extension HUScrollController {
     
     
-    func tapAction() {
+    @objc func tapAction() {
         changeStatus()
     }
     
-    func doubleAction() {
+    @objc func doubleAction() {
         if imageView.frame.size.width > SCREEN_WIDTH ||
             imageView.frame.size.height > SCREEN_HEIGHT {
             reloadImageView()
