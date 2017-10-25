@@ -9,12 +9,14 @@
 import UIKit
 import SnapKit
 
-public protocol HUNamespace {
-    associatedtype WrapperType
-    var hu: WrapperType { get }
-    static var hu: WrapperType.Type { get }
+public protocol HUNamespaceProtocol {
+    /// - aassociatedtype 关键字 用来在协议中表达参数化类型
+    /// - 定义 HUNameType 为协议中的参数类型
+    associatedtype HUNameType
+    var hu: HUNameType { get }
+    static var hu: HUNameType.Type { get }
 }
-public extension HUNamespace {
+public extension HUNamespaceProtocol {
     var hu: HUNamespaceWrapper<Self> {
         return HUNamespaceWrapper(value: self)
     }
@@ -22,14 +24,21 @@ public extension HUNamespace {
         return HUNamespaceWrapper.self
     }
 }
-public struct HUNamespaceWrapper<T> {
+public protocol TypeWrapperProtocol {
+    associatedtype HUNameType
+    var wrappedValue: HUNameType { get }
+    init(value: HUNameType)
+}
+/// 定义的泛型结构体 遵循 TypeWrapperProtocol 协议
+public struct HUNamespaceWrapper<T>: TypeWrapperProtocol {
     public let wrappedValue: T
     public init(value: T) {
         self.wrappedValue = value
     }
 }
-extension UIView: HUNamespace { }
-extension HUNamespaceWrapper where T: UIView {
+extension UIView: HUNamespaceProtocol { }
+///如果对象是引用类型的(类) 如: UIView 等 就必须使用 :
+extension HUNamespaceWrapper where HUNameType: UIView {
     public func adhere(_ toSuperView: UIView) -> T {
         toSuperView.addSubview(wrappedValue)
         return wrappedValue
@@ -47,8 +56,14 @@ extension HUNamespaceWrapper where T: UIView {
         return wrappedValue
     }
 }
+extension String: HUNamespaceProtocol {}
+/// 如果约束对象是值类型的 如: String, Date 等 就必须使用 ==
+extension HUNamespaceWrapper where HUNameType == String {
+    func test(_ string: String) -> String {
+        return "hu:\(string)"
+    }
+}
 //protocol ViewChainable {}
-//
 //extension ViewChainable where Self: UIView {
 //    @discardableResult
 //    func config(_ config: (Self) -> Void) -> Self {
