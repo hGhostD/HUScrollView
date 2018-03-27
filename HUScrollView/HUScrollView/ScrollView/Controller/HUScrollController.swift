@@ -12,33 +12,35 @@ import RxSwift
 import SnapKit
 import pop
 
-class HUScrollController: UIViewController {
+class HUScrollController: UIViewController, UIScrollViewDelegate{
 
     fileprivate let scrollView = HUScrollView()
-    fileprivate let imageView  = UIImageView()
-    public var image = Variable<UIImage>(UIImage())
+    public var image: UIImage?
     var status = showStauts.default
     let navBar = UIView()
     let bag = DisposeBag()
     ///控制状态栏属性
     var isHiddenStatus = true
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {return UIStatusBarAnimation.slide}
-    override var prefersStatusBarHidden: Bool {return isHiddenStatus}
-    override var preferredStatusBarStyle: UIStatusBarStyle {return UIStatusBarStyle.lightContent}
+    override var prefersStatusBarHidden: Bool { return isHiddenStatus }
+    override var preferredStatusBarStyle: UIStatusBarStyle { return UIStatusBarStyle.lightContent}
+    
+    public lazy private(set) var doubleTapGestureRecognizer: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapWithGestureRecognizer(_:)))
+        gesture.numberOfTapsRequired = 2
+        return gesture
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
         setupUI()
-        setupSnpKit()
         setupGesture()
-        setupRxSwift()
     }
     
     func setupUI() {
         self.view.backgroundColor = UIColor.white
-        self.navigationController?.isNavigationBarHidden = true
-        
-        imageView.isUserInteractionEnabled = true
-        
+
         navBar.frame = CGRect(x: 0, y: -64, width: SCREEN_WIDTH, height: 64)
         navBar.backgroundColor = UIColor.black
         
@@ -49,78 +51,70 @@ class HUScrollController: UIViewController {
            self.back()
         }).disposed(by: bag);
         navBar.addSubview(backButton)
-        
+    
+        scrollView.image = image
+        scrollView.frame = view.bounds
+        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollView.delegate = self
         self.view.addSubview(scrollView)
-        scrollView.addSubview(imageView)
         self.view.addSubview(navBar)
-
-    }
-
-    func setupSnpKit() {
-        scrollView.snp.makeConstraints {
-            $0.left.top.right.bottom.equalTo(0)
-        }
-        let imageSize = HUExtensionTool.getImageSize(self.image.value)
-        imageView.snp.makeConstraints {
-            $0.center.equalTo(scrollView)
-            $0.size.equalTo(imageSize)
-        }
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        scrollView.frame = view.bounds
+    }
+
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.scrollView.imageView
+    }
+    
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        scrollView.panGestureRecognizer.isEnabled = true
+//    }
+//    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+//        if (scrollView.zoomScale == scrollView.minimumZoomScale) {
+//            scrollView.panGestureRecognizer.isEnabled = false
+//        }
+//    }
     func setupGesture() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        tap.numberOfTapsRequired = 1
-        scrollView.addGestureRecognizer(tap)
-        
-        let double = UITapGestureRecognizer(target: self, action: #selector(doubleAction))
-        double.numberOfTapsRequired = 2
-        tap.require(toFail: double)
-        scrollView.addGestureRecognizer(double)
+        view.addGestureRecognizer(doubleTapGestureRecognizer)
     }
-
-    func setupRxSwift() {
-        self.image.asObservable().subscribe(onNext: {
-            self.imageView.image = $0
-        }).disposed(by: bag)
-    }
-    
     //刷新大图UI布局
-    func reloadImageView() {
-        let imageSize = HUExtensionTool.getImageSize(self.image.value)
-        imageView.snp.remakeConstraints {
-            $0.center.equalTo(scrollView)
-            $0.size.equalTo(imageSize)
-        }
-    }
-    
-    func blowUpImageView() {
-        let imageSize = HUExtensionTool.getImageMaxSize(self.image.value)
-        imageView.snp.remakeConstraints {
-            $0.size.equalTo(imageSize)
-            $0.center.equalTo(scrollView)
-            $0.left.right.equalTo(0)
-        }
-    }
-    
+
     func back() {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
 }
 
 extension HUScrollController {
     
+    @objc private func handleDoubleTapWithGestureRecognizer(_ recognizer: UITapGestureRecognizer) {
+        let pointInView = recognizer.location(in: scrollView.imageView)
+        var newZoomScale = scrollView.maximumZoomScale
+        
+        if scrollView.zoomScale >= scrollView.maximumZoomScale ||
+            abs(scrollView.zoomScale - scrollView.maximumZoomScale) <= 0.01 {
+            newZoomScale = scrollView.minimumZoomScale
+        }
+        
+        let scrollViewSize = scrollView.bounds.size
+        let width = scrollViewSize.width / newZoomScale
+        let height = scrollViewSize.height / newZoomScale
+        let originX = pointInView.x - (width / 2.0)
+        let originY = pointInView.y - (height / 2.0)
+        
+        let rectToZoom = CGRect(x: originX, y: originY, width: width, height: height)
+        scrollView.zoom(to: rectToZoom, animated: true)
+    }
+
     
     @objc func tapAction() {
         changeStatus()
     }
     
     @objc func doubleAction() {
-        if imageView.frame.size.width > SCREEN_WIDTH ||
-            imageView.frame.size.height > SCREEN_HEIGHT {
-            reloadImageView()
-        }else {
-            blowUpImageView()
-        }
+
     }
     
     func changeStatus() {

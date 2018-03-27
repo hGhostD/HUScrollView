@@ -12,9 +12,9 @@ import SnapKit
 public protocol HUNamespaceProtocol {
     /// - aassociatedtype 关键字 用来在协议中表达参数化类型
     /// - 定义 HUNameType 为协议中的参数类型
-    associatedtype HUNameType
-    var hu: HUNameType { get }
-    static var hu: HUNameType.Type { get }
+    associatedtype nameType
+    var hu: nameType { get }
+    static var hu: nameType.Type { get }
 }
 public extension HUNamespaceProtocol {
     var hu: HUNamespaceWrapper<Self> {
@@ -25,9 +25,9 @@ public extension HUNamespaceProtocol {
     }
 }
 public protocol TypeWrapperProtocol {
-    associatedtype HUNameType
-    var wrappedValue: HUNameType { get }
-    init(value: HUNameType)
+    associatedtype nameType
+    var wrappedValue: nameType { get }
+    init(value: nameType)
 }
 /// 定义的泛型结构体 遵循 TypeWrapperProtocol 协议
 public struct HUNamespaceWrapper<T>: TypeWrapperProtocol {
@@ -38,7 +38,7 @@ public struct HUNamespaceWrapper<T>: TypeWrapperProtocol {
 }
 extension UIView: HUNamespaceProtocol { }
 ///如果对象是引用类型的(类) 如: UIView 等 就必须使用 :
-extension HUNamespaceWrapper where HUNameType: UIView {
+extension HUNamespaceWrapper where nameType: UIView {
     public func adhere(_ toSuperView: UIView) -> T {
         toSuperView.addSubview(wrappedValue)
         return wrappedValue
@@ -58,7 +58,7 @@ extension HUNamespaceWrapper where HUNameType: UIView {
 }
 extension String: HUNamespaceProtocol {}
 /// 如果约束对象是值类型的 如: String, Date 等 就必须使用 ==
-extension HUNamespaceWrapper where HUNameType == String {
+extension HUNamespaceWrapper where nameType == String {
     func test(_ string: String) -> String {
         return "hu:\(string)"
     }

@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SnapKit
 
 class ViewController: UIViewController{
     let bag = DisposeBag()
@@ -23,7 +22,7 @@ class ViewController: UIViewController{
             button.backgroundColor = UIColor(red: 0, green: 147/255, blue: 1, alpha: 1)
             button.layer.cornerRadius = 5
         }
-        print("".hu.test("1222"))
+        
         let button = UIButton(type: .custom)
         button.hu.adhere(self.view)
             .hu.config(buttonConfig)
@@ -35,8 +34,8 @@ class ViewController: UIViewController{
         
         button.rx.tap.subscribe(onNext: {
             let scrollVC = HUScrollController()
-            scrollVC.image.value = UIImage(named: "1.jpg")!
-            self.navigationController?.pushViewController(scrollVC, animated: true)
+            scrollVC.image = UIImage(named: "1.jpg")
+            self.present(scrollVC, animated: true)
         }).disposed(by: bag)
     }
 }
